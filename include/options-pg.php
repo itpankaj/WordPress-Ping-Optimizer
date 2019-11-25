@@ -13,7 +13,7 @@ function cbnetpoShowHide(Div,Img) {
 	}
 }//--></script>
 <div class="wrap">
- <?php $this->cbnetpoHeader(); ?>
+<?php $this->cbnetpoHeader(); ?>
  <h3><?php _e('URIs to Ping', 'cbnetpo'); ?></h3>
  <p>The following services will automatically be pinged when you publish new posts or drafts.  
  <strong>Not</strong> when you publish future posts or edit previously published posts, as WordPress does by default.</p>
@@ -37,17 +37,17 @@ function cbnetpoShowHide(Div,Img) {
  <h2>WordPress ping Optimizer Needs Your Support</h2> 
 It is hard to continue development and support for this free plugin without contributions from users like you. If you enjoy using WordPress ping Optimizer and find it useful, please consider <a href="https://itspankajha.wordpress.com/donation/" target="_blank"><span style="color:blue;font-weight:bold">making a small donation</span></a>. Your donation will help encourage and support the plugin's continued development and better user support. Remember some part of our donation will go for charity would spread lots of smiles.
 	
- <?php if ( cbnetpo_LOG == true ) { ?>
+<?php if ( cbnetpo_LOG == true ) { ?>
  <h3><?php _e('Ping Log', 'cbnetpo'); ?></h3>
- <?php 
+<?php 
  list($pinglog,$exists,$pinglogrecords) = $this->cbnetpoGetLogData();
  
  if($exists){?><p><a href="?page=<?php echo $this->cbnetpo_path;?>&d=yes" onclick="return confirm('All ping log data will be deleted. Are you sure?')" style="color:#FF0000;font-weight:bold"><img src="<?php echo $this->cbnetpo_incpath;?>images/delete.gif" border="0" align="absmiddle"> Clear Log (<?php echo $pinglogrecords; ?> Records)</a></p><?php }?>
- <?php } ?>
+<?php } ?>
  <p><strong><?php _e('Following are the lastest actions performed by the plugin:', 'cbnetpo'); ?></strong>
- <?php 
+<?php 
  echo $pinglog;
- ?>
+?>
  </p>
- <?php $this->cbnetpoFooter(); ?>
+<?php $this->cbnetpoFooter(); ?>
 </div>
