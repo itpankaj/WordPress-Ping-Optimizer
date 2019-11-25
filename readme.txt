@@ -4,7 +4,7 @@ Plugin Site: https://itspankajha.wordpress.com/
 Donate link: https://itspankajha.wordpress.com/donation/
 Tags: WordPress Ping Optimizer, Ping Optimizer, Ping Fix, Future Ping, Smart  Ping, Ping, promotion, Ping Service, Auto Ping, blogsearch, Boost, boost seo, Booster, google, seo, google, google sitemap, index, links, Live, one click, pages, plugin, posts, search engine, sitemap, sitemap-index, sitemapindex, sitemaps, splits, submit,  pingomatic 
 Requires at least: 3.0.1
-Tested up to: 4.9.1
+Tested up to: 5.2.2
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -41,6 +41,17 @@ Activiation and Use
 1. screenshot-1.png
 
 == Changelog ==
+= 2.35.1.1.0 =
+* Fixed [PHP 7.3 error][https://wordpress.org/support/topic/php-warning-200/]
+
+= 2.35.1.0.0 =
+* Compatible with wordpress 5.2 
+
+= 2.35.0.1.2 =
+* Fixed [issues](https://wordpress.org/support/topic/not-authorized-to-open-settings/):
+	Not authorized to open settings and
+	Plugin NOT upgraded properly. Please reactivate the plugin
+
 = 2.35.0.1 =
 * Fixed [issues](https://wordpress.org/support/topic/php-7-errors-7/):
 	Warning: count(): Parameter must be an array or an object
@@ -127,6 +138,12 @@ Activiation and Use
 * Compatible with 3.4.1
 
 == Upgrade Notice ==
+= 2.35.1.1 =
+Fixed error - PHP 7.3: Warning: count(): Parameter must be an array or an object that implements Countable
+
+= 2.35.1.0 =
+Compatible with wordpress 5.2. Tested plugin with latest version, no issue reported.  
+
 = 2.35.0.1 =
 * Fixed issues:
 	Warning: count(): Parameter must be an array or an object

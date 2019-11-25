@@ -3,7 +3,7 @@
  * Plugin Name:   WordPress Ping Optimizer
  * Plugin URI:    https://itspankajha.wordpress.com/donation/
  * Description:   Saves your wordpress blog from getting tagged as ping spammer. (Note: This plugin is a fork of the cbnet Ping Optimizer plugin.)
- * Version:       2.35.0.1.2
+ * Version:       2.35.1.1.0
  * Author:        Pankaj Jha
  * Author URI:    https://itspankajha.wordpress.com/portfolio/
  * License:       GNU General Public License, v2 (or newer)
@@ -31,7 +31,7 @@ define("cbnetpo_LOG", true);					    // Set to 'true' to keep log, else 'false'.
  * cbnetPingOptimizer - cbnet Ping Optimizer Class
  * Holds all the necessary functions and variables
  * html 5 ui fix
- * Compatible with wordpress 4.9.1 and above
+ * Compatible with wordpress 5.2.0 and above
  */
 class cbnetPingOptimizer 
 {
@@ -278,9 +278,12 @@ class cbnetPingOptimizer
 					$this->cbnetpo_options = array('limit_ping' => $this->cbnetpo_request['limit_ping'], 'limit_number' => $this->cbnetpo_request['limit_number'], 'limit_time' => $this->cbnetpo_request['limit_time']);
 					update_option('cbnetpo_options', $this->cbnetpo_options);
 					$msg = 'Options saved.';
-				} else if ( isset($_GET['d']) && $_GET['d'] == 'yes' ) {
-					$wpdb->query("DELETE FROM $this->cbnetpo_pinglog_tbl");
-					$msg = 'Ping Log Deleted.';
+				} else if ( isset($_GET['d'])) {
+					if($_GET['d'] == 'yes')
+					{
+						$wpdb->query("DELETE FROM $this->cbnetpo_pinglog_tbl");
+						$msg = 'Ping Log Deleted.';
+					}
 				}
 			} 
 			 else {
@@ -529,7 +532,7 @@ class cbnetPingOptimizer
 		// handle null before count
 		if (is_null($this->cbnetpo_future_pings))
 			$pingCount=0;
-		else
+		elseif(is_array($this->cbnetpo_future_pings))
 			$pingCount=count($this->cbnetpo_future_pings);
 		
 		// future ping list is empty
@@ -591,7 +594,7 @@ class cbnetPingOptimizer
 		$pingCount=0;
 		if (is_null($this->cbnetpo_future_pings))
 			$pingCount=0;
-		else
+		elseif (is_array($this->cbnetpo_future_pings))
 			$pingCount=count($this->cbnetpo_future_pings);
 		if ( $pingCount <= 0 ) {
 			return $id;
@@ -701,6 +704,5 @@ class cbnetPingOptimizer
 	
 	
 } // Eof Class
-
 $cbnetPingOptimizer = new cbnetPingOptimizer();
 ?>
